@@ -1,23 +1,57 @@
 package org.ulasalle.P1_Inroducción_Kotlin
 
 fun main() {
+    val points = getValidPoints()
+    val salary = getValidSalary()
 
-    println("Ingrese la puntuación del empleado: ")
-    val points: Int? = readln().toIntOrNull()
-    if (points == null || points < 0 || points > 10) {
-        println("Valor inválido para la puntuación del empleado, esta debe ser un número entero entre 0 y 10")
+    val bonus = calculateBonus(points, salary)
+    val performanceLevel = getPerformanceLevel(points)
+
+    println("Nivel de Rendimiento $performanceLevel, Cantidad de Dinero Recibido $${String.format("%.2f", bonus)}")
+}
+
+fun getValidPoints(): Int {
+    while (true) {
+        println("Ingrese la puntuación del empleado (0-10): ")
+        val input = readLine()
+        try {
+            val points = input?.toIntOrNull()
+            when {
+                points == null -> println("Error: Por favor, ingrese un número entero válido.")
+                points !in 0..10 -> println("Error: La puntuación debe estar entre 0 y 10.")
+                else -> return points
+            }
+        } catch (e: Exception) {
+            println("Error: Se produjo un error inesperado. Por favor, intente de nuevo.")
+        }
     }
+}
 
-    println("Ingrese el salario del empleado: ")
-    var salary: Double? = readln().toDoubleOrNull()
-    if (salary == null || salary < 0) {
-        println("Valor inválido para el salario del empleado, esta debe ser un número positivo")
+fun getValidSalary(): Double {
+    while (true) {
+        println("Ingrese el salario del empleado: ")
+        val input = readLine()
+        try {
+            val salary = input?.toDoubleOrNull()
+            when {
+                salary == null -> println("Error: Por favor, ingrese un número válido para el salario.")
+                salary < 0 -> println("Error: El salario debe ser un número positivo.")
+                else -> return salary
+            }
+        } catch (e: Exception) {
+            println("Error: Se produjo un error inesperado. Por favor, intente de nuevo.")
+        }
     }
-    salary = salary!! * points!! / 10
+}
 
-    when (points) {
-        in 0 .. 3 -> println("Nivel de Rendimiento Inaceptable, Cantidad de Dinero Recibido $${salary}")
-        in 4 .. 6 -> println("Nivel de Rendimiento Aceptable, Cantidad de Dinero Recibido $${salary}")
-        else -> println("Nivel de Rendimiento Meritorio, Cantidad de Dinero Recibido $${salary}")
+fun calculateBonus(points: Int, salary: Double): Double {
+    return salary * points / 10
+}
+
+fun getPerformanceLevel(points: Int): String {
+    return when (points) {
+        in 0..3 -> "Inaceptable"
+        in 4..6 -> "Aceptable"
+        else -> "Meritorio"
     }
 }
