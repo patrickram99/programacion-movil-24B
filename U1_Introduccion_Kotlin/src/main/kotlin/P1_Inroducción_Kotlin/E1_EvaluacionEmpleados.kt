@@ -19,7 +19,9 @@ fun main() {
     val bonus = calculateBonus(points, salary)
     val performanceLevel = getPerformanceLevel(points)
 
-    println("Nivel de Rendimiento $performanceLevel, Cantidad de Dinero Recibido $${String.format("%.2f", bonus)}")
+    println("Nivel de Rendimiento $performanceLevel, Cantidad de Dinero Recibido en soles $${String.format("%.2f", bonus)}")
+    println("Nivel de Rendimiento $performanceLevel, Cantidad de Dinero Recibido en dolares $${String.format("%.2f", bonus * 0.27)}")
+
 }
 
 // Funcion para obtener la puntuacion del empleado
