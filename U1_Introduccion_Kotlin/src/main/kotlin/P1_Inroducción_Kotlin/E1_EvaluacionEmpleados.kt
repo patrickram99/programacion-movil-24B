@@ -1,3 +1,15 @@
+/*
+Evaluación Empleados:
+Un programa que evalúa el rendimiento de los empleados en una empresa cada seis meses. Según la puntuación obtenida
+(de 0 a 10), se clasifica en niveles de rendimiento: "Inaceptable", "Aceptable" o "Meritorio". Además, calcula la
+cantidad de dinero que el empleado recibirá basándose en su salario mensual y su puntuación.
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Viernes 23 de agosto
+Fecha de modificacion   : Lunes 26 de agosto
+
+*/
+
 package org.ulasalle.P1_Inroducción_Kotlin
 
 fun main() {

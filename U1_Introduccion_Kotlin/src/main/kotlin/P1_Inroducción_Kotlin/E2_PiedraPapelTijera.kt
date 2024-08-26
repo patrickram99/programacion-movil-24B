@@ -1,3 +1,14 @@
+/*
+Piedra, Papel, Tijera:
+Juego tradicional de Piedra, Papel y Tijera donde el usuario juega contra la computadora que selecciona su opcion al
+azar
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Sabado 24 de agosto
+Fecha de modificacion   : Lunes 26 de agosto
+
+*/
+
 package p1IntroduccionKotlin
 
 // Definimos las opciones del juego como constantes (val)

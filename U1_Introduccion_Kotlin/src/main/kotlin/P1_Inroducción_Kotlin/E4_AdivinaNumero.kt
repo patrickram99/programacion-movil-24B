@@ -1,3 +1,17 @@
+/*
+Adivina Número:
+Un juego en el que el programa genera un número aleatorio entre 1 y 30. El usuario debe adivinar el número,
+recibiendo pistas de si el número es mayor o menor que el ingresado. El usuario tiene 5 intentos para adivinar
+correctamente antes de que el juego termine. Si adivina correctamente, se muestra un mensaje de felicitación;
+si no, se muestra "Perdiste :(".
+
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Lunes 26 de agosto
+Fecha de modificacion   : Lunes 26 de agosto
+
+*/
+
 package P1_Inroducción_Kotlin
 
 import kotlin.random.Random

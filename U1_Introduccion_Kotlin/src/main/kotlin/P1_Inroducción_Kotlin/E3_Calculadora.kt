@@ -1,3 +1,15 @@
+/*
+Calculadora elemental:
+Una calculadora básica que permite al usuario realizar operaciones de suma, resta, multiplicación y división.
+Presenta un menú con estas opciones y una opción para salir. El programa valida que la opción seleccionada sea
+válida y muestra el resultado de la operación elegida.
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Lunes 26 de agosto
+Fecha de modificacion   : Lunes 26 de agosto
+
+*/
+
 package P1_Inroducción_Kotlin
 import kotlin.system.exitProcess
 
@@ -16,6 +28,7 @@ fun menuOfOperation() {
         println("5. Salir")
         print("Seleccione una opción: ")
 
+        // Seleccionar operacion
         when (readLine()?.toIntOrNull()) {
             1 -> performOperation("Suma") { a, b -> a + b }
             2 -> performOperation("Resta") { a, b -> a - b }
@@ -39,9 +52,10 @@ fun performOperation(operationName: String, operation: (Double, Double) -> Doubl
     println("Ingrese el segundo número:")
     val num2 = readLine()?.toDoubleOrNull()
 
+    // Verificar validez de los numeros
     if (num1 != null && num2 != null) {
         try {
-            val result = operation(num1, num2)
+            val result = operation(num1, num2) // Ejecutar la operacion deseada
             println("Resultado de $operationName: $result")
         } catch (e: IllegalArgumentException) {
             println(e.message)
