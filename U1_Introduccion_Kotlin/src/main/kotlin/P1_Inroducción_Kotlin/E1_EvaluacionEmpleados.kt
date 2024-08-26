@@ -10,6 +10,7 @@ fun main() {
     println("Nivel de Rendimiento $performanceLevel, Cantidad de Dinero Recibido $${String.format("%.2f", bonus)}")
 }
 
+// Funcion para obtener la puntuacion del empleado
 fun getValidPoints(): Int {
     while (true) {
         println("Ingrese la puntuación del empleado (0-10): ")
@@ -27,6 +28,7 @@ fun getValidPoints(): Int {
     }
 }
 
+// Funcion para obtener el salario del empleado
 fun getValidSalary(): Double {
     while (true) {
         println("Ingrese el salario del empleado: ")
@@ -44,10 +46,12 @@ fun getValidSalary(): Double {
     }
 }
 
+// Funcion para calcular la cantidad de dineroq ue recibira el empleado
 fun calculateBonus(points: Int, salary: Double): Double {
     return salary * points / 10
 }
 
+// Funcion para calcular el nivel de performance del empleado
 fun getPerformanceLevel(points: Int): String {
     return when (points) {
         in 0..3 -> "Inaceptable"
