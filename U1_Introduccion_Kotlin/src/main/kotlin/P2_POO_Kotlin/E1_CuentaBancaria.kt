@@ -10,6 +10,14 @@ class CuentaBancaria(saldoInicial: Double, private val limiteRetiro: Double) {
 
     // Propiedad saldo con getter público y setter privado para encapsulamiento
     var saldo: Double = 0.0
+        private set(value) {
+            // Validación para asegurar que el saldo no sea negativo
+            if (value >= 0) {
+                field = value
+            } else {
+                throw IllegalArgumentException("El saldo no puede ser negativo")
+            }
+        }
 
     init {
         // Inicialización del saldo utilizando el setter para validación
