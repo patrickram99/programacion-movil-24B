@@ -1,3 +1,14 @@
+/*
+Biblioteca:
+Una implementacion ligera de un sistema de biblioteca con usuarios, libros y revistas, permite
+ver prestamos y usuarioos actuales
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 01 de septiembre
+Fecha de creacion       : Lunes 02 de septiembre
+
+*/
+
 package P2_POO_Kotlin.E4_Sistema_Biblioteca
 
 import P2_POO_Kotlin.E4_Sistema_Biblioteca.Model.Libro
