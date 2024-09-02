@@ -40,4 +40,28 @@ class Producto {
     }
 }
 
+// Driver code
+fun main() {
+    // Crear producto
+    val producto = Producto(100.0, 20.0)
+    println(producto)
 
+    // Modificar producto
+    producto.precio = 150.0
+    producto.descuento = 10.0
+
+    // Imprimir datos de producto
+    println(producto)
+
+    try {
+        producto.precio = -50.0 // Esto lanzará una excepción de precio incorrectp
+    } catch (e: IllegalArgumentException) {
+        println("Error: ${e.message}")
+    }
+
+    try {
+        producto.descuento = 110.0 // Esto lanzará una excepción de exceso de descuento
+    } catch (e: IllegalArgumentException) {
+        println("Error: ${e.message}")
+    }
+}
