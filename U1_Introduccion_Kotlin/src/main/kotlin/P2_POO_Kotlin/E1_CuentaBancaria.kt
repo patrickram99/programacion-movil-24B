@@ -61,3 +61,17 @@ class CuentaBancaria(saldoInicial: Double, private val limiteRetiro: Double) {
         println("Retiro exitoso. Nuevo saldo: $saldo")
     }
 }
+
+
+fun main() {
+    // Crear una cuenta bancaria con un saldo inicial y un límite de retiro
+    val cuenta = CuentaBancaria(saldoInicial = 1000.0, limiteRetiro = 500.0)
+
+    // Mostrar el saldo inicial
+    println("Saldo inicial: ${cuenta.saldo}")
+
+    // Intentar realizar un retiro dentro del limite y positivo
+    val retiroExitoso1 = cuenta.realizarRetiro(300.0)
+    println("Retiro de 300 exitoso: $retiroExitoso1")
+    println("Saldo después del retiro: ${cuenta.saldo}")
+}
