@@ -1,3 +1,13 @@
+/*
+Figuras:
+Programa showcase para demostrar uso de clases con ejemplos de Square (cuadrado), CIrcle (circulo)
+y Rectangle (rectangulo) que heredan de clase abstracta Shape (figura). Se imprimen los datos
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 01 de septiembre
+Fecha de creacion       : Lunes 02 de septiembre
+*/
+
 package P2_POO_Kotlin.E3_Figuras
 
 

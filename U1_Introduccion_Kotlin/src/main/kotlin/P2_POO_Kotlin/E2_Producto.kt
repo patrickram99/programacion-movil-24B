@@ -1,10 +1,21 @@
+/*
+Producto:
+Clase Producto representa un item al cual se le puede aplicar un descuento para
+poder venderlo
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 01 de septiembre
+Fecha de creacion       : Lunes 02 de septiembre
+
+*/
+
 package P2_POO_Kotlin
 
 /**
- * Clase que representa un producto con precio y descuento.
+ * Clase que representa un producto con precio y descuento
  *
- * @property precio El precio base del producto.
- * @property descuento El porcentaje de descuento aplicable al producto.
+ * @property precio El precio base del producto
+ * @property descuento El porcentaje de descuento del producto
  */
 class Producto {
     var precio: Double = 0.0

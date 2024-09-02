@@ -1,3 +1,13 @@
+/*
+Cuenta Bancaria:
+Clase que representa a una cuenta bancaria y la operación retirar, existe un limite de retiro
+y la cuenta es asociada un nuevo objeto
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 01 de septiembre
+Fecha de creacion       : Lunes 02 de septiembre
+
+*/
+
 package P2_POO_Kotlin
 
 /**
