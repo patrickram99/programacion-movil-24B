@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/arrays.xml -->
 <resources>
     <string-array name="img_options">
         <item>Gato</item>
         <item>Perro</item>
         <item>Conejo</item>
         <item>Huron</item>
+    </string-array>
+
+    <string-array name="img_drawables">
+        <item>cat</item>
+        <item>dog</item>
+        <item>bunny</item>
+        <item>huron</item>
     </string-array>
 </resources>

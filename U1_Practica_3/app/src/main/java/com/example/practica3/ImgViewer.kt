@@ -1,6 +1,7 @@
 package com.example.practica3
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,20 +14,26 @@ class ImgViewer : AppCompatActivity() {
         val imgOption = intent.getStringExtra("option") ?: ""
         val imageView = findViewById<ImageView>(R.id.image_view)
         val titleView = findViewById<TextView>(R.id.title)
+        val goBackButton = findViewById<Button>(R.id.go_back_button)
 
-        val imageMap = mapOf(
-            "Gato" to R.drawable.cat,
-            "Perro" to R.drawable.dog,
-            "Conejo" to R.drawable.bunny,
-            "Huron" to R.drawable.huron,
-        )
+        // Get both string arrays from resources
+        val imgOptions = resources.getStringArray(R.array.img_options)
+        val imgDrawables = resources.getStringArray(R.array.img_drawables)
+
+        // Create the map dynamically
+        val imageMap = imgOptions.zip(imgDrawables).toMap()
 
         // Set the image
-        imageMap[imgOption]?.let { imageResource ->
-            imageView.setImageResource(imageResource)
+        imageMap[imgOption]?.let { drawableName ->
+            val resourceId = resources.getIdentifier(drawableName, "drawable", packageName)
+            imageView.setImageResource(resourceId)
         }
 
         // Set the title
-        titleView.text = (imgOption ?: R.string.no_image).toString()
+        titleView.text = imgOption
+
+        goBackButton.setOnClickListener {
+            finish()
+        }
     }
 }
