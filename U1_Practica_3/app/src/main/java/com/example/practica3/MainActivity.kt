@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity() {
 
         nextPageButton.setOnClickListener{
             val intent = Intent(this@MainActivity, ImgViewer::class.java)
+            intent.putExtra("option", spinner.selectedItem.toString())
             startActivity(intent)
         }
     }
