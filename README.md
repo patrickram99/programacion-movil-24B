@@ -24,6 +24,16 @@ Una vez dentro de esta carpeta se debe buscar el siguiente archivo para ejecutar
 - E3: Figuras -> E3_Figuras/Main.kt
 - E4: Biblioteca -> E4_Sistema_Biblioteca/Biblioteca.kt
 
+### Practica 3
+Para ejecutar la aplicacion es necesario ingresar al directorio de P3 y ejecutarlo desde Android Studio
+```
+cd U1_Practica_3
+```
+La Actividad Principal se encuentra en:
+```
+U1_Practica_3/app/src/main/java/com/example/practica3/MainActivity.kt
+```
+
 El repositorio se encuentra en la siguiente URL:
 [https://github.com/patrickram99/programacion-movil-24B](https://github.com/patrickram99/programacion-movil-24B).
 
