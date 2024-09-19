@@ -1,4 +1,4 @@
-package com.example.practica3
+package com.example.practica3.E1_Spinner
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,8 +7,9 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.example.practica3.R
 
-class MainActivity : AppCompatActivity() {
+class SpinnerApp : AppCompatActivity() {
 
     private lateinit var spinner: Spinner
     private lateinit var nextPageButton: Button
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             // Save the selected option
             sharedPreferences.edit().putString("last_selected", selectedOption).apply()
 
-            val intent = Intent(this@MainActivity, ImgViewer::class.java)
+            val intent = Intent(this@SpinnerApp, ImgViewer::class.java)
             intent.putExtra("option", selectedOption)
             startActivity(intent)
         }

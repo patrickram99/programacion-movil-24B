@@ -1,4 +1,4 @@
-package com.example.practica3
+package com.example.practica3.E1_Spinner
 
 import android.view.View
 import android.widget.AdapterView
