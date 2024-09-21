@@ -39,6 +39,8 @@ La Actividad Principal del Reproductor de Musica se encuentra en:
 ```
 app/src/main/java/com/example/practica3/E2_MusicApp/MusicApp.kt
 ```
+![image](https://github.com/user-attachments/assets/027616b2-8cf3-42b1-b916-1c088299a68f)
+
 
 El repositorio se encuentra en la siguiente URL:
 [https://github.com/patrickram99/programacion-movil-24B](https://github.com/patrickram99/programacion-movil-24B).
