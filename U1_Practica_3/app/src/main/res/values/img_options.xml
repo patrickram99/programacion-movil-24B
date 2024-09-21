@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/values/arrays.xml -->
 <resources>
+    <!-- Array of image options displayed in the spinner -->
     <string-array name="img_options">
         <item>Gato</item>
         <item>Perro</item>
@@ -8,6 +8,7 @@
         <item>Huron</item>
     </string-array>
 
+    <!-- Array of corresponding drawable resource names for each image option -->
     <string-array name="img_drawables">
         <item>cat</item>
         <item>dog</item>
@@ -15,12 +16,14 @@
         <item>huron</item>
     </string-array>
 
+    <!-- Array of song titles (not used in the current implementation) -->
     <string-array name="songs">
         <item>Run Away With Me</item>
         <item>New Romatics (Taylor\'s Version)</item>
         <item>What The Hell</item>
     </string-array>
 
+    <!-- Array of artist names (not used in the current implementation) -->
     <string-array name="artists">
         <item>Carly Rae Jepsen</item>
         <item>Taylor Swift</item>

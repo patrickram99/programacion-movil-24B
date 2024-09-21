@@ -6,6 +6,10 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="no_image">Imagen Desconocida :(</string>
+    <string name="image_not_found">Imagen no encontrada</string>
+    <string name="loading_image">Cargando Imagen Random…</string>
+    <string name="error_loading_image">Error, ten el album de Carly de remedio :( </string>
+    <string name="random_image">Imagen Random OMG</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

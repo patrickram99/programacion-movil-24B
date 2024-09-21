@@ -4,14 +4,13 @@ import android.view.View
 import android.widget.AdapterView
 
 /**
- * Handles the selection events for a Spinner
+ * Handles the selection events for a Spinner.
  */
 class SpinnerHandler : AdapterView.OnItemSelectedListener {
     /**
-     * The currently selected item in the Spinner
+     * The currently selected item in the Spinner.
      *
-     * Variable updated everytime a new item is selected
-     * Private setter, public getter
+     * This variable is updated every time a new item is selected.
      */
     var selectedItem: String = ""
         private set
