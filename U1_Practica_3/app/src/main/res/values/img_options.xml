@@ -14,4 +14,16 @@
         <item>bunny</item>
         <item>huron</item>
     </string-array>
+
+    <string-array name="songs">
+        <item>Emotion</item>
+        <item>New Romatics (Taylor\'s Version)</item>
+        <item>What The Hell</item>
+    </string-array>
+
+    <string-array name="artists">
+        <item>Carly Rae Jepsen</item>
+        <item>Taylor Swift</item>
+        <item>Avril Lavigne</item>
+    </string-array>
 </resources>
