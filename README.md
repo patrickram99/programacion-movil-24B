@@ -25,13 +25,19 @@ Una vez dentro de esta carpeta se debe buscar el siguiente archivo para ejecutar
 - E4: Biblioteca -> E4_Sistema_Biblioteca/Biblioteca.kt
 
 ### Practica 3
-Para ejecutar la aplicacion es necesario ingresar al directorio de P3 y ejecutarlo desde Android Studio
+Para ejecutar la aplicacion es necesario ingresar al directorio de P3 y ejecutarlo desde Android Studio, esta configurado para tener 2 posibles MainActivity (Para facilitar revision)
 ```
 cd U1_Practica_3
 ```
-La Actividad Principal se encuentra en:
+La Actividad Principal del Seleccionador de Imagenes se encuentra en:
 ```
-U1_Practica_3/app/src/main/java/com/example/practica3/MainActivity.kt
+app/src/main/java/com/example/practica3/E1_Spinner/SpinnerApp.kt
+```
+![image](https://github.com/user-attachments/assets/25534a86-5d58-4d1d-8d4f-62a8cb46bdb0)
+
+La Actividad Principal del Reproductor de Musica se encuentra en:
+```
+app/src/main/java/com/example/practica3/E2_MusicApp/MusicApp.kt
 ```
 
 El repositorio se encuentra en la siguiente URL:
