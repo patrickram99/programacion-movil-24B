@@ -12,7 +12,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.practica3.R
 
+/**
+ * MusicApp is an activity that provides a simple music player interface.
+ * It allows users to play, pause, skip, and seek through a predefined list of songs.
+ */
 class MusicApp : AppCompatActivity() {
+
     private var music: MediaPlayer? = null
     private lateinit var seek: SeekBar
     private lateinit var playOrPauseButton: ImageButton
@@ -25,13 +30,9 @@ class MusicApp : AppCompatActivity() {
 
     private val songs: Array<String> by lazy { resources.getStringArray(R.array.songs) }
     private val artists: Array<String> by lazy { resources.getStringArray(R.array.artists) }
-
     private val albumArts = arrayOf(R.drawable.emotion, R.drawable.ts1989, R.drawable.lullaby)
     private val audio = arrayOf(R.raw.run, R.raw.new_romantics, R.raw.wth)
-
-    private val durations = audio.map {
-        getAudioDuration(it)
-    }.toTypedArray()
+    private val durations by lazy { audio.map { getAudioDuration(it) }.toTypedArray() }
 
     private lateinit var updateSeekBar: Runnable
     private val handler = Handler(Looper.getMainLooper())
@@ -40,6 +41,16 @@ class MusicApp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music_app)
 
+        initializeViews()
+        setupSeekBarUpdater()
+        setupClickListeners()
+        updateUI()
+    }
+
+    /**
+     * Initializes all view references.
+     */
+    private fun initializeViews() {
         seek = findViewById(R.id.playback_seekbar)
         playOrPauseButton = findViewById(R.id.play_pause_button)
         nextSongButton = findViewById(R.id.next_button)
@@ -47,7 +58,12 @@ class MusicApp : AppCompatActivity() {
         songTitle = findViewById(R.id.song_title)
         artistName = findViewById(R.id.artist_name)
         albumArt = findViewById(R.id.album_art)
+    }
 
+    /**
+     * Sets up the Runnable for updating the SeekBar.
+     */
+    private fun setupSeekBarUpdater() {
         updateSeekBar = object : Runnable {
             override fun run() {
                 music?.let {
@@ -57,9 +73,22 @@ class MusicApp : AppCompatActivity() {
                 handler.postDelayed(this, 1000) // Update every second
             }
         }
+    }
 
-        updateUI()
+    /**
+     * Sets up click listeners for all interactive elements.
+     */
+    private fun setupClickListeners() {
+        setupSeekBarListener()
+        setupNextButtonListener()
+        setupPreviousButtonListener()
+        setupPlayPauseButtonListener()
+    }
 
+    /**
+     * Sets up the listener for the SeekBar.
+     */
+    private fun setupSeekBarListener() {
         seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
@@ -74,7 +103,12 @@ class MusicApp : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+    }
 
+    /**
+     * Sets up the listener for the next button.
+     */
+    private fun setupNextButtonListener() {
         nextSongButton.setOnClickListener {
             if (currentSong < songs.size - 1) {
                 currentSong += 1
@@ -82,7 +116,12 @@ class MusicApp : AppCompatActivity() {
                 music?.start()
             }
         }
+    }
 
+    /**
+     * Sets up the listener for the previous button.
+     */
+    private fun setupPreviousButtonListener() {
         previousSongButton.setOnClickListener {
             if (currentSong > 0) {
                 currentSong -= 1
@@ -90,37 +129,70 @@ class MusicApp : AppCompatActivity() {
                 music?.start()
             }
         }
+    }
 
+    /**
+     * Sets up the listener for the play/pause button.
+     */
+    private fun setupPlayPauseButtonListener() {
         playOrPauseButton.setOnClickListener {
             music?.let {
                 if (it.isPlaying) {
-                    it.pause()
-                    playOrPauseButton.setImageResource(R.drawable.play)
-                    handler.removeCallbacks(updateSeekBar)
+                    pauseMusic()
                 } else {
-                    it.start()
-                    playOrPauseButton.setImageResource(R.drawable.pause)
-                    handler.post(updateSeekBar)
+                    playMusic()
                 }
             }
         }
     }
 
+    /**
+     * Pauses the currently playing music.
+     */
+    private fun pauseMusic() {
+        music?.pause()
+        playOrPauseButton.setImageResource(R.drawable.play)
+        handler.removeCallbacks(updateSeekBar)
+    }
+
+    /**
+     * Starts or resumes playing the current music.
+     */
+    private fun playMusic() {
+        music?.start()
+        playOrPauseButton.setImageResource(R.drawable.pause)
+        handler.post(updateSeekBar)
+    }
+
+    /**
+     * Updates the UI with the current song information and starts playing it.
+     */
     private fun updateUI() {
         songTitle.text = songs[currentSong]
         artistName.text = artists[currentSong]
         albumArt.setImageResource(albumArts[currentSong])
+        setupNewMediaPlayer()
+        playMusic()
+        setupCompletionListener()
+    }
+
+    /**
+     * Sets up a new MediaPlayer for the current song.
+     */
+    private fun setupNewMediaPlayer() {
         music?.release()
         music = MediaPlayer.create(this, audio[currentSong])
         music?.setVolume(0.5f, 0.5f)
-        music?.start()
-        playOrPauseButton.setImageResource(R.drawable.pause)
-        handler.post(updateSeekBar)
+    }
+
+    /**
+     * Sets up the completion listener for the current song.
+     */
+    private fun setupCompletionListener() {
         music?.setOnCompletionListener {
             if (currentSong < songs.size - 1) {
                 currentSong += 1
                 updateUI()
-                music?.start()
             } else {
                 playOrPauseButton.setImageResource(R.drawable.play)
                 handler.removeCallbacks(updateSeekBar)
@@ -128,13 +200,19 @@ class MusicApp : AppCompatActivity() {
         }
     }
 
-    fun getAudioDuration(rawResourceId: Int): Long {
+    /**
+     * Retrieves the duration of an audio file from raw resources.
+     *
+     * @param rawResourceId The resource ID of the audio file.
+     * @return The duration of the audio file in milliseconds.
+     */
+    private fun getAudioDuration(rawResourceId: Int): Long {
         val mmr = MediaMetadataRetriever()
         try {
             val afd = resources.openRawResourceFd(rawResourceId)
             mmr.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
             val durationStr = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            return durationStr!!.toLong()
+            return durationStr?.toLong() ?: 0
         } catch (e: Exception) {
             e.printStackTrace()
             return 0
