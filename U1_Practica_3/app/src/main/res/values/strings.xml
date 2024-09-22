@@ -10,6 +10,10 @@
     <string name="loading_image">Cargando Imagen Random…</string>
     <string name="error_loading_image">Error, ten el album de Carly de remedio :( </string>
     <string name="random_image">Imagen Random OMG</string>
+    <string name="select_image_msg">Seleccione una imagen</string>
+    <string name="select_song_msg">Seleccione una cancion</string>
+    <string name="select_image">Mostrar imagen</string>
+    <string name="select_song">Mostrar cancion</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -46,4 +50,5 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="me_siento_con_suerte">Me siento con suerte</string>
 </resources>

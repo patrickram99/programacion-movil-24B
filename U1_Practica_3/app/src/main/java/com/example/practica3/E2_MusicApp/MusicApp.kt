@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -20,6 +21,7 @@ class MusicApp : AppCompatActivity() {
 
     private var music: MediaPlayer? = null
     private lateinit var seek: SeekBar
+    private lateinit var goBackButton: Button
     private lateinit var playOrPauseButton: ImageButton
     private lateinit var nextSongButton: ImageButton
     private lateinit var previousSongButton: ImageButton
@@ -30,9 +32,8 @@ class MusicApp : AppCompatActivity() {
 
     private val songs: Array<String> by lazy { resources.getStringArray(R.array.songs) }
     private val artists: Array<String> by lazy { resources.getStringArray(R.array.artists) }
-    private val albumArts = arrayOf(R.drawable.emotion, R.drawable.ts1989, R.drawable.lullaby)
-    private val audio = arrayOf(R.raw.run, R.raw.new_romantics, R.raw.wth)
-    private val durations by lazy { audio.map { getAudioDuration(it) }.toTypedArray() }
+    private val albumArts = arrayOf(R.drawable.emotion, R.drawable.ts1989, R.drawable.lullaby, R.drawable.greedy, R.drawable.brat)
+    private val audio = arrayOf(R.raw.run, R.raw.new_romantics, R.raw.wth, R.raw.greedy, R.raw.apple)
 
     private lateinit var updateSeekBar: Runnable
     private val handler = Handler(Looper.getMainLooper())
@@ -40,11 +41,13 @@ class MusicApp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music_app)
+        currentSong = intent.getIntExtra("selected_index", 0)  // Retrieve the index
 
         initializeViews()
         setupSeekBarUpdater()
         setupClickListeners()
         updateUI()
+        setupGoBackButton()
     }
 
     /**
@@ -58,6 +61,7 @@ class MusicApp : AppCompatActivity() {
         songTitle = findViewById(R.id.song_title)
         artistName = findViewById(R.id.artist_name)
         albumArt = findViewById(R.id.album_art)
+        goBackButton = findViewById(R.id.go_back_button)
     }
 
     /**
@@ -218,6 +222,14 @@ class MusicApp : AppCompatActivity() {
             return 0
         } finally {
             mmr.release()
+        }
+    }
+    /**
+     * Sets up the go back button to finish the activity.
+     */
+    private fun setupGoBackButton() {
+        goBackButton.setOnClickListener {
+            finish()
         }
     }
 

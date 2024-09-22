@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.practica3.R
 
@@ -19,6 +20,8 @@ class SpinnerApp : AppCompatActivity() {
     private lateinit var nextPageButton: Button
     private lateinit var luckButton: Button
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var titleView: TextView
+
 
     /**
      * Initializes the activity, sets up views, and loads the last selected option.
@@ -41,6 +44,10 @@ class SpinnerApp : AppCompatActivity() {
         nextPageButton = findViewById(R.id.print_button)
         luckButton = findViewById(R.id.luck_button)
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        titleView = findViewById(R.id.title)
+
+        titleView.text = getString(R.string.select_image_msg)
+        nextPageButton.text = getString(R.string.select_image)
     }
 
     /**

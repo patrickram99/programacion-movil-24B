@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/artist_name" />
 
     <LinearLayout
+        android:id="@+id/control_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -87,5 +88,17 @@
             android:layout_marginStart="24dp"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/go_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/button_color"
+        android:text="Go Back"
+        android:textColor="@color/button_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/control_buttons" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

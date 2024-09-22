@@ -16,17 +16,21 @@
         <item>huron</item>
     </string-array>
 
-    <!-- Array of song titles (not used in the current implementation) -->
+    <!-- Array of song titles -->
     <string-array name="songs">
         <item>Run Away With Me</item>
         <item>New Romatics (Taylor\'s Version)</item>
         <item>What The Hell</item>
+        <item>Greedy</item>
+        <item>Apple</item>
     </string-array>
 
-    <!-- Array of artist names (not used in the current implementation) -->
+    <!-- Array of artist names -->
     <string-array name="artists">
         <item>Carly Rae Jepsen</item>
         <item>Taylor Swift</item>
         <item>Avril Lavigne</item>
+        <item>Tate McRae</item>
+        <item>Charli XCX</item>
     </string-array>
 </resources>
