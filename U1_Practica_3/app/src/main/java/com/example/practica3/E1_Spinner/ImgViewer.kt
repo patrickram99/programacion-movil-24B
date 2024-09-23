@@ -1,3 +1,14 @@
+/*
+ImgViewer:
+Class that shows the image selected by the user, it allows to go back to the selection section
+without losing the alternative
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Viernes 15 de septiembre
+Fecha de modificacion   : Domingo 22 de septiembre
+
+*/
+
 package com.example.practica3.E1_Spinner
 
 import android.graphics.BitmapFactory

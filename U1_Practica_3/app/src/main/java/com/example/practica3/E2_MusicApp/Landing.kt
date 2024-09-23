@@ -1,3 +1,13 @@
+/*
+Landing:
+Class with a Spinner that allows the user to select a song or go with a randomly generated option
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 15 de septiembre
+Fecha de modificacion   : Domingo 22 de septiembre
+
+*/
+
 package com.example.practica3.E2_MusicApp
 
 import android.content.Intent

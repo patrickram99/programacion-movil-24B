@@ -1,3 +1,14 @@
+/*
+SpinnerApp:
+Class with a Spinner that allows the user to select which image they want to visualize, also
+includes a button to get a randomly generated image from an API
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 15 de septiembre
+Fecha de modificacion   : Domingo 22 de septiembre
+
+*/
+
 package com.example.practica3.E1_Spinner
 
 import android.content.Intent

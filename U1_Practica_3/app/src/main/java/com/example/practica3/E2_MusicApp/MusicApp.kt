@@ -1,3 +1,16 @@
+/*
+MusicApp:
+Class with a music player interface that allows the user to pause/resume the song,
+also implements a SeekBar to go back or forward in the song. Also has buttons for the next/previous
+song with automatic play for the next song and the option to go back to the Spinner and
+select another song
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 15 de septiembre
+Fecha de modificacion   : Domingo 22 de septiembre
+
+*/
+
 package com.example.practica3.E2_MusicApp
 
 import android.media.MediaPlayer
