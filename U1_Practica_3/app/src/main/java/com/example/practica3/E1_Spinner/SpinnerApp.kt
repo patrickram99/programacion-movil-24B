@@ -65,12 +65,17 @@ class SpinnerApp : AppCompatActivity() {
      * Sets up the spinner with image options.
      */
     private fun setupSpinner() {
-        ArrayAdapter.createFromResource(
+        val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.img_options,
             android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        spinner.invalidate()
+
+        spinner.post {
             spinner.adapter = adapter
         }
     }
