@@ -37,9 +37,9 @@ app/src/main/java/com/example/practica3/E1_Spinner/SpinnerApp.kt
 
 La Actividad Principal del Reproductor de Musica se encuentra en:
 ```
-app/src/main/java/com/example/practica3/E2_MusicApp/MusicApp.kt
+app/src/main/java/com/example/practica3/E2_MusicApp/Landing.kt
 ```
-![image](https://github.com/user-attachments/assets/027616b2-8cf3-42b1-b916-1c088299a68f)
+![image](https://github.com/user-attachments/assets/08501a47-39f7-4605-bf00-71ce09e61818)
 
 
 El repositorio se encuentra en la siguiente URL:
