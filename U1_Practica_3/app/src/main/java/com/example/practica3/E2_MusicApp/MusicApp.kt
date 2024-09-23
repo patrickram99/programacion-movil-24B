@@ -1,6 +1,5 @@
 package com.example.practica3.E2_MusicApp
 
-import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
@@ -205,26 +204,6 @@ class MusicApp : AppCompatActivity() {
     }
 
     /**
-     * Retrieves the duration of an audio file from raw resources.
-     *
-     * @param rawResourceId The resource ID of the audio file.
-     * @return The duration of the audio file in milliseconds.
-     */
-    private fun getAudioDuration(rawResourceId: Int): Long {
-        val mmr = MediaMetadataRetriever()
-        try {
-            val afd = resources.openRawResourceFd(rawResourceId)
-            mmr.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
-            val durationStr = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            return durationStr?.toLong() ?: 0
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return 0
-        } finally {
-            mmr.release()
-        }
-    }
-    /**
      * Sets up the go back button to finish the activity.
      */
     private fun setupGoBackButton() {
@@ -233,6 +212,9 @@ class MusicApp : AppCompatActivity() {
         }
     }
 
+    /**
+     * Reset music app and stop music
+     */
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacks(updateSeekBar)
