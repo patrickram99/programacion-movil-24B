@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Array of image options displayed in the spinner -->
+    <string-array name="img_options">
+        <item>Gato</item>
+        <item>Perro</item>
+        <item>Conejo</item>
+        <item>Huron</item>
+    </string-array>
+
+    <!-- Array of corresponding drawable resource names for each image option -->
+    <string-array name="img_drawables">
+        <item>cat</item>
+        <item>dog</item>
+        <item>bunny</item>
+        <item>huron</item>
+    </string-array>
+</resources>
