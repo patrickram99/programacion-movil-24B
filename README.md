@@ -41,6 +41,16 @@ app/src/main/java/com/example/practica3/E2_MusicApp/Landing.kt
 ```
 ![image](https://github.com/user-attachments/assets/08501a47-39f7-4605-bf00-71ce09e61818)
 
+### Practica 4 - SpinnerApp
+Para ejecutar los ejericios de esta practica ejecutar la carpeta indicada, para cargar la aplicación de Spinner dirigirse aqui:
+```
+cd U1_Practica_4_Spinner
+```
+
+Para ejecutar los ejericios de esta practica ejecutar la carpeta indicada, para cargar la aplicación de MusicApp dirigirse aqui:
+```
+cd U1_Practica_4_MusicApp 
+```
 
 El repositorio se encuentra en la siguiente URL:
 [https://github.com/patrickram99/programacion-movil-24B](https://github.com/patrickram99/programacion-movil-24B).
