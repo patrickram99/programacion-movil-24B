@@ -14,6 +14,9 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
+/**
+ * A fragment that displays a spinner for selecting an image and buttons for navigation.
+ */
 class SpinnerFragment : Fragment() {
     private lateinit var spinner: Spinner
     private lateinit var nextPageButton: Button
@@ -27,10 +30,24 @@ class SpinnerFragment : Fragment() {
         private const val LAST_SELECTED_KEY = "last_selected"
     }
 
+    /**
+     * Called to create the view hierarchy associated with the fragment.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate views in the fragment.
+     * @param container The parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     * @return The View for the fragment's UI, or null.
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_spinner, container, false)
     }
 
+    /**
+     * Called immediately after onCreateView() has returned, but before any saved state has been restored in to the view.
+     *
+     * @param view The View returned by onCreateView().
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -39,6 +56,11 @@ class SpinnerFragment : Fragment() {
         setupButtons()
     }
 
+    /**
+     * Initializes the views in the fragment.
+     *
+     * @param view The root view of the fragment.
+     */
     private fun initializeViews(view: View) {
         spinner = view.findViewById(R.id.image_spinner)
         nextPageButton = view.findViewById(R.id.print_button)
@@ -50,6 +72,9 @@ class SpinnerFragment : Fragment() {
         nextPageButton.text = getString(R.string.select_image)
     }
 
+    /**
+     * Sets up the spinner with options and loads the last selected option.
+     */
     private fun setupSpinner() {
         val adapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -75,6 +100,9 @@ class SpinnerFragment : Fragment() {
         }
     }
 
+    /**
+     * Loads the last selected option from SharedPreferences and sets the spinner selection accordingly.
+     */
     private fun loadLastSelectedOption() {
         val lastSelected = sharedPreferences.getString(LAST_SELECTED_KEY, null)
         Log.d(TAG, "Loading last selected option: $lastSelected")
@@ -92,6 +120,9 @@ class SpinnerFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets up the click listeners for the navigation buttons.
+     */
     private fun setupButtons() {
         nextPageButton.setOnClickListener {
             val selectedOption = spinner.selectedItem.toString()
@@ -103,6 +134,11 @@ class SpinnerFragment : Fragment() {
         }
     }
 
+    /**
+     * Saves the selected option to SharedPreferences.
+     *
+     * @param selectedOption The selected option to be saved.
+     */
     private fun saveSelectedOption(selectedOption: String) {
         Log.d(TAG, "Saving selected option: $selectedOption")
         with(sharedPreferences.edit()) {

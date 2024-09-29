@@ -13,7 +13,12 @@ import androidx.fragment.app.Fragment
 import java.net.HttpURLConnection
 import java.net.URL
 
-
+/**
+ * A fragment that displays an image based on the selected option.
+ *
+ * This fragment allows the user to view an image either from local resources or a random image from Lorem Picsum.
+ * It also provides a "Go Back" button to navigate back to the previous screen.
+ */
 class ImageViewerFragment : Fragment() {
     private lateinit var imageView: ImageView
     private lateinit var titleView: TextView
@@ -22,6 +27,12 @@ class ImageViewerFragment : Fragment() {
     companion object {
         private const val ARG_OPTION = "option"
 
+        /**
+         * Creates a new instance of the [ImageViewerFragment] with the specified option.
+         *
+         * @param option The selected image option.
+         * @return A new instance of the [ImageViewerFragment].
+         */
         fun newInstance(option: String): ImageViewerFragment {
             val fragment = ImageViewerFragment()
             val args = Bundle()
@@ -31,10 +42,24 @@ class ImageViewerFragment : Fragment() {
         }
     }
 
+    /**
+     * Called to create the view hierarchy associated with the fragment.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     * @return The View for the fragment's UI, or null.
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_image_viewer, container, false)
     }
 
+    /**
+     * Called immediately after [onCreateView] has returned, but before any saved state has been restored in to the view.
+     *
+     * @param view The View returned by [onCreateView].
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,12 +68,23 @@ class ImageViewerFragment : Fragment() {
         setupGoBackButton()
     }
 
+    /**
+     * Initializes the views used in the fragment.
+     *
+     * @param view The root view of the fragment.
+     */
     private fun initializeViews(view: View) {
         imageView = view.findViewById(R.id.image_view)
         titleView = view.findViewById(R.id.title)
         goBackButton = view.findViewById(R.id.go_back_button)
     }
 
+    /**
+     * Displays the image based on the selected option.
+     *
+     * If the option is "lucky", a random image from Lorem Picsum is displayed.
+     * Otherwise, the corresponding image from local resources is displayed.
+     */
     private fun displayImage() {
         val option = arguments?.getString(ARG_OPTION) ?: ""
 
@@ -85,6 +121,9 @@ class ImageViewerFragment : Fragment() {
         ImageLoadTask().execute()
     }
 
+    /**
+     * Sets up the "Go Back" button click listener to navigate back to the previous screen.
+     */
     private fun setupGoBackButton() {
         goBackButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
@@ -95,6 +134,12 @@ class ImageViewerFragment : Fragment() {
      * AsyncTask to load image from Lorem Picsum in the background.
      */
     private inner class ImageLoadTask : AsyncTask<Void, Void, android.graphics.Bitmap?>() {
+        /**
+         * Performs the background operation to load the image from Lorem Picsum.
+         *
+         * @param params The parameters of the task, which are not used in this case.
+         * @return The loaded bitmap image, or null if an error occurred.
+         */
         override fun doInBackground(vararg params: Void): android.graphics.Bitmap? {
             try {
                 val imageUrl = getLoremPicsumImageUrl()
@@ -105,6 +150,11 @@ class ImageViewerFragment : Fragment() {
             return null
         }
 
+        /**
+         * Runs on the UI thread after the background computation finishes.
+         *
+         * @param result The result of the background computation.
+         */
         override fun onPostExecute(result: android.graphics.Bitmap?) {
             if (result != null) {
                 imageView.setImageBitmap(result)
@@ -119,6 +169,7 @@ class ImageViewerFragment : Fragment() {
      * Retrieves the image URL from Lorem Picsum.
      *
      * @return The URL of the random image.
+     * @throws Exception if failed to get the image URL.
      */
     private fun getLoremPicsumImageUrl(): String {
         val url = URL("https://picsum.photos/200/300")
@@ -130,4 +181,5 @@ class ImageViewerFragment : Fragment() {
         connection.disconnect()
 
         return locationHeader ?: throw Exception("Failed to get image URL")
-    }}
+    }
+}
