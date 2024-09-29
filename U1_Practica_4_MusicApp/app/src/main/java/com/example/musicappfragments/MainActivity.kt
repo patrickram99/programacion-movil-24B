@@ -1,3 +1,13 @@
+/*
+MainActivity:
+Shows a spinner so the user can select a song to play
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 21 de septiembre
+Fecha de modificacion   : Domingo 28 de septiembre
+
+*/
+
 package com.example.musicappfragments
 
 import android.content.SharedPreferences

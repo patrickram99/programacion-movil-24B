@@ -1,3 +1,13 @@
+/*
+MusicControlsFragment:
+A fragment that displays music playback controls.
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 21 de septiembre
+Fecha de modificacion   : Domingo 28 de septiembre
+
+*/
+
 package com.example.musicappfragments
 
 import android.os.Bundle
