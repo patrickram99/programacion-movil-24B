@@ -9,6 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
+/**
+ * A fragment that represents a music player.
+ *
+ * This fragment handles the playback of music and manages the user interface
+ * for controlling the music playback. It communicates with the [MusicInfoFragment]
+ * and [MusicControlsFragment] to update the UI based on the current song and playback state.
+ *
+ * @property currentSong The index of the currently selected song.
+ * @property music The [MediaPlayer] instance used for playing the music.
+ * @property handler The [Handler] used for updating the seek bar progress.
+ * @property updateSeekBar The [Runnable] that updates the seek bar progress.
+ * @property isInitialPlay Indicates whether it is the initial play of the music.
+ * @property isSeeking Indicates whether the user is currently seeking the music.
+ */
 class MusicPlayerFragment : Fragment() {
     private var currentSong: Int = 0
     private lateinit var music: MediaPlayer
@@ -20,6 +34,12 @@ class MusicPlayerFragment : Fragment() {
     companion object {
         private const val ARG_SELECTED_INDEX = "selected_index"
 
+        /**
+         * Creates a new instance of [MusicPlayerFragment] with the specified selected index.
+         *
+         * @param selectedIndex The index of the selected song.
+         * @return A new instance of [MusicPlayerFragment].
+         */
         fun newInstance(selectedIndex: Int): MusicPlayerFragment {
             val fragment = MusicPlayerFragment()
             val args = Bundle()
@@ -65,6 +85,9 @@ class MusicPlayerFragment : Fragment() {
         updatePlayPauseButton()
     }
 
+    /**
+     * Sets up the [MediaPlayer] instance for playing the music.
+     */
     private fun setupMediaPlayer() {
         val audioArray = resources.obtainTypedArray(R.array.audio)
         val audioResId = audioArray.getResourceId(currentSong, 0)
@@ -74,6 +97,9 @@ class MusicPlayerFragment : Fragment() {
         music.setVolume(0.5f, 0.5f)
     }
 
+    /**
+     * Sets up the [Runnable] for updating the seek bar progress.
+     */
     private fun setupSeekBarUpdater() {
         updateSeekBar = object : Runnable {
             override fun run() {
@@ -92,6 +118,11 @@ class MusicPlayerFragment : Fragment() {
         handler.post(updateSeekBar)
     }
 
+    /**
+     * Seeks the music to the specified progress position.
+     *
+     * @param progress The progress position to seek to, in percentage (0-100).
+     */
     fun seekTo(progress: Int) {
         val duration = music.duration
         val newPosition = (progress.toFloat() / 100 * duration).toInt()
@@ -110,15 +141,23 @@ class MusicPlayerFragment : Fragment() {
         }
     }
 
+    /**
+     * Called when the user starts tracking touch on the seek bar.
+     */
     fun onStartTrackingTouch() {
         isSeeking = true
     }
 
+    /**
+     * Called when the user stops tracking touch on the seek bar.
+     */
     fun onStopTrackingTouch() {
         isSeeking = false
     }
 
-
+    /**
+     * Toggles the play/pause state of the music.
+     */
     fun togglePlayPause() {
         if (music.isPlaying) {
             music.pause()
@@ -129,6 +168,9 @@ class MusicPlayerFragment : Fragment() {
         updatePlayPauseButton()
     }
 
+    /**
+     * Plays the next song in the playlist.
+     */
     fun nextSong() {
         if (currentSong < resources.getStringArray(R.array.songs).size - 1) {
             currentSong++
@@ -136,6 +178,9 @@ class MusicPlayerFragment : Fragment() {
         }
     }
 
+    /**
+     * Plays the previous song in the playlist.
+     */
     fun previousSong() {
         if (currentSong > 0) {
             currentSong--
@@ -143,6 +188,9 @@ class MusicPlayerFragment : Fragment() {
         }
     }
 
+    /**
+     * Updates the currently playing song.
+     */
     private fun updateSong() {
         music.stop()
         music.release()
@@ -152,11 +200,17 @@ class MusicPlayerFragment : Fragment() {
         updateUI()
     }
 
+    /**
+     * Updates the user interface based on the current song and playback state.
+     */
     private fun updateUI() {
         (childFragmentManager.findFragmentById(R.id.info_container) as? MusicInfoFragment)?.updateInfo(currentSong)
         updatePlayPauseButton()
     }
 
+    /**
+     * Updates the play/pause button state based on the current playback state.
+     */
     private fun updatePlayPauseButton() {
         (childFragmentManager.findFragmentById(R.id.controls_container) as? MusicControlsFragment)?.updatePlayPauseButton(!isInitialPlay && music.isPlaying)
     }

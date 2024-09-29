@@ -10,6 +10,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
+/**
+ * The main activity of the music app.
+ *
+ * This activity allows the user to select a song from a spinner and navigate to the music player.
+ * It also provides a button to randomly select a song.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var spinner: Spinner
@@ -20,6 +26,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainContent: View
     private lateinit var fragmentContainer: View
 
+    /**
+     * Called when the activity is starting.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being
+     * shut down then this Bundle contains the data it most recently supplied in
+     * [onSaveInstanceState]. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         setupButtons()
     }
 
+    /**
+     * Initializes the views used in the activity.
+     */
     private fun initializeViews() {
         spinner = findViewById(R.id.song_spinner)
         nextPageButton = findViewById(R.id.select_song_button)
@@ -44,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
     }
 
+    /**
+     * Sets up the spinner with the list of songs.
+     */
     private fun setupSpinner() {
         val adapter = ArrayAdapter.createFromResource(
             this,
@@ -54,6 +73,9 @@ class MainActivity : AppCompatActivity() {
         spinner.adapter = adapter
     }
 
+    /**
+     * Loads the last selected song from shared preferences and sets it as the selected item in the spinner.
+     */
     private fun loadLastSelectedOption() {
         val lastSelected = sharedPreferences.getString("last_selected", null)
         lastSelected?.let {
@@ -62,6 +84,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Sets up the click listeners for the buttons.
+     */
     private fun setupButtons() {
         nextPageButton.setOnClickListener {
             val selectedOption = spinner.selectedItem.toString()
@@ -74,10 +99,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Saves the selected song option to shared preferences.
+     *
+     * @param selectedOption The selected song option.
+     */
     private fun saveSelectedOption(selectedOption: String) {
         sharedPreferences.edit().putString("last_selected", selectedOption).apply()
     }
 
+    /**
+     * Navigates to the music player fragment with the selected song index.
+     *
+     * @param selectedIndex The index of the selected song.
+     */
     private fun navigateToMusicPlayer(selectedIndex: Int) {
         val musicPlayerFragment = MusicPlayerFragment.newInstance(selectedIndex)
         supportFragmentManager.beginTransaction()
@@ -88,6 +123,9 @@ class MainActivity : AppCompatActivity() {
         fragmentContainer.visibility = View.VISIBLE
     }
 
+    /**
+     * Called when the activity has detected the user's press of the back key.
+     */
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount > 0) {
             supportFragmentManager.popBackStack()
