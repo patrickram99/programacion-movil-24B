@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
@@ -38,11 +39,6 @@ class SpinnerFragment : Fragment() {
         setupButtons()
     }
 
-    override fun onResume() {
-        super.onResume()
-        loadLastSelectedOption()
-    }
-
     private fun initializeViews(view: View) {
         spinner = view.findViewById(R.id.image_spinner)
         nextPageButton = view.findViewById(R.id.print_button)
@@ -62,6 +58,21 @@ class SpinnerFragment : Fragment() {
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
+
+        // Load the last selected option
+        loadLastSelectedOption()
+
+        // Set up listener to save the selected option
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedOption = parent?.getItemAtPosition(position).toString()
+                saveSelectedOption(selectedOption)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing
+            }
+        }
     }
 
     private fun loadLastSelectedOption() {
@@ -84,7 +95,6 @@ class SpinnerFragment : Fragment() {
     private fun setupButtons() {
         nextPageButton.setOnClickListener {
             val selectedOption = spinner.selectedItem.toString()
-            saveSelectedOption(selectedOption)
             (requireActivity() as MainActivity).navigateToImageViewer(selectedOption)
         }
 
