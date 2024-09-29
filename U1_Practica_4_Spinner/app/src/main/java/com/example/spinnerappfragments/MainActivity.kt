@@ -1,3 +1,13 @@
+/*
+MainActivity:
+Driver class that loads the Fragment for the Spionner selector
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 21 de septiembre
+Fecha de modificacion   : Domingo 28 de septiembre
+
+*/
+
 package com.example.spinnerappfragments
 
 import android.os.Bundle

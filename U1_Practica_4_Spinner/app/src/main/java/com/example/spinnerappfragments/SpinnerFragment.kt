@@ -1,3 +1,13 @@
+/*
+SpinnerFragment:
+Class with a Spinner that allows the user to select a song or go with a randomly generated option
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 21 de septiembre
+Fecha de modificacion   : Domingo 28 de septiembre
+
+*/
+
 package com.example.spinnerappfragments
 
 import android.content.Context

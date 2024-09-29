@@ -1,3 +1,13 @@
+/*
+Landing:
+Fragment that selects the selected image, also provides a Go Back button to select another image
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Domingo 21 de septiembre
+Fecha de modificacion   : Domingo 28 de septiembre
+
+*/
+
 package com.example.spinnerappfragments
 
 import android.graphics.BitmapFactory
