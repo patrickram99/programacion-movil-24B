@@ -7,6 +7,7 @@ class Song(
     var name: String,
     var artist: String,
     var duration: String,
+    var isFavorite: Boolean = false,
 
     @DrawableRes
     var coverArt: Int,
