@@ -16,15 +16,30 @@ import com.example.u1_practica_5_recyclerview.Song
 import com.example.u1_practica_5_recyclerview.SongProvider
 import com.example.u1_practica_5_recyclerview.adapter.SongsAdapter
 
+/**
+ * A fragment representing a list of Songs.
+ */
 class SongListFragment : Fragment() {
     private lateinit var songAdapter: SongsAdapter
     private lateinit var userRecycler: RecyclerView
     private var musicPlayerCallback: MusicPlayerCallback? = null
 
+    /**
+     * Called when a fragment is first attached to its context.
+     * @param context The context to which the fragment is attached.
+     */
     override fun onAttach(context: Context) {
         super.onAttach(context)
         musicPlayerCallback = context as? MusicPlayerCallback
     }
+
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,11 +50,19 @@ class SongListFragment : Fragment() {
         return view
     }
 
+    /**
+     * Called immediately after onCreateView has returned, but before any saved state has been restored in to the view.
+     * @param view The View returned by onCreateView.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
     }
 
+    /**
+     * Initializes the RecyclerView with a LinearLayoutManager, DividerItemDecoration, and SongsAdapter.
+     */
     private fun initRecyclerView() {
         val manager = LinearLayoutManager(requireContext())
         val decorator = DividerItemDecoration(requireContext(), manager.orientation)
@@ -54,19 +77,27 @@ class SongListFragment : Fragment() {
         userRecycler.addItemDecoration(decorator)
     }
 
+    /**
+     * Handles the selection of a song item.
+     * @param song The selected Song object.
+     */
     private fun onItemSelected(song: Song) {
         musicPlayerCallback?.onSongSelected(song)
     }
 
+    /**
+     * Called when the fragment is no longer attached to its activity.
+     */
     override fun onDetach() {
         super.onDetach()
         musicPlayerCallback = null
     }
 
-/*    override fun onDestroy() {
-        super.onDestroy()
-        if (::music.isInitialized) {
-            music.release()
-        }
-    }*/
+    // Uncomment if you need to release resources when the fragment is destroyed
+    // override fun onDestroy() {
+    //     super.onDestroy()
+    //     if (::music.isInitialized) {
+    //         music.release()
+    //     }
+    // }
 }

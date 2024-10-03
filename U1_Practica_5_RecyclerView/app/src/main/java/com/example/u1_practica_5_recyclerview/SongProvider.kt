@@ -4,10 +4,22 @@ import android.content.Context
 import android.media.MediaMetadataRetriever
 import java.util.concurrent.TimeUnit
 
+/**
+ * Singleton class that provides a list of songs.
+ *
+ * @constructor Creates a SongProvider instance and initializes the song list.
+ * @param context The context used to access resources.
+ */
 class SongProvider private constructor(context: Context) {
     companion object {
-        var instance: SongProvider? = null
+        private var instance: SongProvider? = null
 
+        /**
+         * Returns the singleton instance of SongProvider.
+         *
+         * @param context The context used to create the instance if it does not exist.
+         * @return The singleton instance of SongProvider.
+         */
         fun getInstance(context: Context): SongProvider {
             if (instance == null) {
                 instance = SongProvider(context)
@@ -16,6 +28,9 @@ class SongProvider private constructor(context: Context) {
         }
     }
 
+    /**
+     * List of songs.
+     */
     val listaSongs: ArrayList<Song>
 
     init {
@@ -44,6 +59,13 @@ class SongProvider private constructor(context: Context) {
         albumArts.recycle()
     }
 
+    /**
+     * Calculates the duration of a song.
+     *
+     * @param context The context used to access resources.
+     * @param resourceId The resource ID of the song file.
+     * @return The duration of the song in "minutes:seconds" format.
+     */
     private fun calculateDuration(context: Context, resourceId: Int): String {
         val retriever = MediaMetadataRetriever()
         val assetFileDescriptor = context.resources.openRawResourceFd(resourceId)
