@@ -1,7 +1,16 @@
+/*
+SongListFragment:
+Fragment that contains the RecyclerView with the list of songs.
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Martes 01 de octubre
+Fecha de modificacion   : Jueves 03 de octubre
+
+*/
+
 package com.example.u1_practica_5_recyclerview.fragments
 
 import android.content.Context
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

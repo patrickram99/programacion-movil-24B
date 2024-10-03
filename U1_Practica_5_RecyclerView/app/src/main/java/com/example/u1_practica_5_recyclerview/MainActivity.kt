@@ -1,3 +1,13 @@
+/*
+MainActivity:
+Driver code for the music player application.
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Martes 01 de octubre
+Fecha de modificacion   : Jueves 03 de octubre
+
+*/
+
 package com.example.u1_practica_5_recyclerview
 
 import android.media.MediaPlayer

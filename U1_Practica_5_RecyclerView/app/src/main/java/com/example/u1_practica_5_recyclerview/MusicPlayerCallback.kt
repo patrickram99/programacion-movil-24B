@@ -1,3 +1,13 @@
+/*
+MusicPlayerCallback:
+Interface used to comunicate both fragments for controls and RecyclerView
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Martes 01 de octubre
+Fecha de modificacion   : Jueves 03 de octubre
+
+*/
+
 package com.example.u1_practica_5_recyclerview
 
 /**

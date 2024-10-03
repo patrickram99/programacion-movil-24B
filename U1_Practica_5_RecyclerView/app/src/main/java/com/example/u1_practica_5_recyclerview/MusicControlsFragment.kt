@@ -1,7 +1,12 @@
 /*
-The provided code is a Kotlin class named MusicControlsFragment that represents a fragment for displaying music playback controls. It includes a seek bar, play/pause button, next song button, previous song button, and a go back button. The fragment communicates with the parent MusicPlayerFragment through a callback interface to control music playback.
+MusicControlsFragment:
+Fragment that contains the music playback controls.
 
- */
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Martes 01 de octubre
+Fecha de modificacion   : Jueves 03 de octubre
+
+*/
 
 package com.example.u1_practica_5_recyclerview
 

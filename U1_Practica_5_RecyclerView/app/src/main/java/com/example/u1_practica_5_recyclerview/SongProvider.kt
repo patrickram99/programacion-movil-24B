@@ -1,3 +1,13 @@
+/*
+SongProvider:
+Returns the elements for the RecyclerView
+
+Autor                   : Patrick Ramirez
+Fecha de creacion       : Lunes 30 de septiembre
+Fecha de modificacion   : Jueves 03 de octubre
+
+*/
+
 package com.example.u1_practica_5_recyclerview
 
 import android.content.Context
