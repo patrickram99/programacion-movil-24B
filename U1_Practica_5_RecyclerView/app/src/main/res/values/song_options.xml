@@ -7,10 +7,21 @@
         <item>What The Hell</item>
         <item>Greedy</item>
         <item>Apple</item>
+        <item>Run Away With Me</item>
+        <item>New Romatics (Taylor\'s Version)</item>
+        <item>What The Hell</item>
+        <item>Greedy</item>
+        <item>Apple</item>
+
     </string-array>
 
     <!-- Array of artist names -->
     <string-array name="artists">
+        <item>Carly Rae Jepsen</item>
+        <item>Taylor Swift</item>
+        <item>Avril Lavigne</item>
+        <item>Tate McRae</item>
+        <item>Charli XCX</item>
         <item>Carly Rae Jepsen</item>
         <item>Taylor Swift</item>
         <item>Avril Lavigne</item>
@@ -25,10 +36,20 @@
         <item>@raw/wth</item>
         <item>@raw/greedy</item>
         <item>@raw/apple</item>
+        <item>@raw/run</item>
+        <item>@raw/new_romantics</item>
+        <item>@raw/wth</item>
+        <item>@raw/greedy</item>
+        <item>@raw/apple</item>
     </array>
 
     <!-- Array of artist cover for the albumv -->
     <array name="album_arts">
+        <item>@drawable/emotion</item>
+        <item>@drawable/ts1989</item>
+        <item>@drawable/lullaby</item>
+        <item>@drawable/greedy</item>
+        <item>@drawable/brat</item>
         <item>@drawable/emotion</item>
         <item>@drawable/ts1989</item>
         <item>@drawable/lullaby</item>
