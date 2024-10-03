@@ -52,7 +52,7 @@ Para ejecutar los ejericios de esta practica ejecutar la carpeta indicada, para 
 cd U1_Practica_4_MusicApp 
 ```
 
-### Practica 4 - SpinnerApp
+### Practica 5 - MusicApp con RecyclerView
 Para ejecutar los ejericios de esta practica ejecutar la carpeta indicada, para cargar la aplicación de Spinner dirigirse aqui:
 ```
 cd U1_Practica_5_RecyclerView
