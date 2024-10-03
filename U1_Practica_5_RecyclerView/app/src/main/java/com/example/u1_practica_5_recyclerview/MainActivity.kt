@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.u1_practica_5_recyclerview.adapter.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var userAdapter: SongsAdapter
+    private lateinit var songAdapter: SongsAdapter
     private lateinit var userRecycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,16 +21,20 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         val manager = LinearLayoutManager(this)
         val decorator = DividerItemDecoration(this, manager.orientation)
-        userAdapter = SongsAdapter(SongProvider.instance.listaSongs, ::onItemSelected)
+
+        // Get the SongProvider instance using the application context
+        val songProvider = SongProvider.getInstance(applicationContext)
+
+        songAdapter = SongsAdapter(songProvider.listaSongs, ::onItemSelected)
         userRecycler = findViewById(R.id.user_list)
         userRecycler.layoutManager = manager
-        userRecycler.adapter = userAdapter
+        userRecycler.adapter = songAdapter
 
         userRecycler.addItemDecoration(decorator)
     }
 
-    private fun onItemSelected(user: Song) {
-        val msg = "${user.name} OMG Evento"
+    private fun onItemSelected(song: Song) {
+        val msg = "${song.name} by ${song.artist}"
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
