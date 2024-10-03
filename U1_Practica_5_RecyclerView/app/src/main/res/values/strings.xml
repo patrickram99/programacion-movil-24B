@@ -2,5 +2,7 @@
     <string name="app_name">U1_Practica_5_RecyclerView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="go_back">Go Back</string>
+    <string name="go_back">Salir</string>
+    <string name="no_song_selected">Ninguna cancion seleccionada</string>
+    <string name="Reproduciendo">Reproduciendo: %1$s</string>
 </resources>
