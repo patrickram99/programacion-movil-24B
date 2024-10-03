@@ -35,7 +35,7 @@ class SongProvider private constructor(context: Context) {
                 artist = artists[i],
                 duration = duration,
                 coverArt = albumArts.getResourceId(i, 0),
-                songUrl = "android.resource://${context.packageName}/$audioResourceId"
+                songUrl = audioResources.getResourceId(i, 0)
             )
             listaSongs.add(song)
         }

@@ -1,6 +1,7 @@
 package com.example.u1_practica_5_recyclerview
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.RawRes
 
 class Song(
     var name: String,
@@ -9,5 +10,7 @@ class Song(
 
     @DrawableRes
     var coverArt: Int,
-    var songUrl: String
+
+    @RawRes
+    var songUrl: Int
 )
